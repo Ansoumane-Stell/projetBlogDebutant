@@ -1,14 +1,31 @@
+/* box-sizing: border-box; permet d'initialiser 
+les marges intérieures et extérieure */
 *{
     box-sizing: border-box;
 }
 
-body{
+/* il est important de toout définir au début
+et seulement les spécificités dans les balises
+respectives...  
+la  hauteur de ligne est sans unité  */
+body,html {
     font-size: 16px;
     font-family: sans-serif;
     color: rgba(0,0, 0, 0.8);
-    line-height: 1.8;
+    line-height: 1.5;
     margin: 0;
+    font-weight: 400;
 }
+
+/* 
+Je m'interesse d'abord aux proprétés générales
+de la barre d'en-haut
+(topbar); barre que je diviserai par suite
+ en deux sous parties: 
+ _ "menu"; 
+ _ "sociale" 
+ 
+ */
 
 .topbar{
     position: fixed;
@@ -17,12 +34,20 @@ body{
     right: 0;
     width: 100%;
     background: white;
-    padding: 21px 20px;
+    padding: 20px;
+    box-shadow:0 4px 10px rgba(0, 0, 0, 0.13) ;
+    z-index: 2;
 }
+
+/* je commence la sous partie
+par le menu (nav) */
 
 .topbar nav{
     float: left;
 }
+
+/* ici les propriétés que je souhaiterais 
+pour les liens  se trouvant dans le menu */
 
 .topbar nav a{
     color: gray;
@@ -31,9 +56,15 @@ body{
     margin:0  20px;
 }
 
+
 .topbar nav a:hover, .topbar nav a.active {
     color: black;
 }
+
+
+
+/* ensuite les propriéts de la sous partie
+ sociale  */
 
 .topbar .social{
     float: right;
@@ -47,3 +78,163 @@ body{
 .social a:hover{
     opacity: 1;
 }
+
+/* Partie banniere: au lieu de passer 
+par img, je peux la prendre comme image de fond..
+Attention la hauteur est importante ici sinon il 
+ne s'afficherait rien...
+ */
+.banniere{
+    height: 700px;
+ background:no-repeat center center / cover  url(./img/goose1.jpg) ;
+}
+
+/* Partie contenu principal 
+je commence par l'aligner à gauche
+Quant à la largeur, proceder par pourcentage
+fonctionne bien...
+*/
+
+
+
+.centrale{
+    display: flex;
+}
+ .main {
+   
+   background: rgba(0, 128, 128, 0.89);
+   width: 60%;
+ }
+
+
+/* Partie information complémentaire
+est  alignée à droite avec le complément
+du poucentage
+les hauteurs ne sont pas précisées 
+car elles dépendent du contenu
+
+*/
+
+ .sidebar{
+    
+    background: rgba(0, 128, 128, 0.692);
+    width: 40%;
+    padding: 10px;
+    font-size: 15px;
+ }
+
+ .sidebar-title{
+   font-size: 30px;
+   color: black;
+   margin: 1px 0;
+ }
+
+
+ .sidebar a{
+    text-decoration: none;
+ }
+
+
+ .sidebar ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+   
+ }
+
+ .sidebar a:hover{
+    text-decoration: underline;
+ }
+
+ .sidebar-title:first-child
+ {
+    margin-top: 0;
+ }
+
+
+ .sidebar li {
+    padding: 3px 0;
+ }
+
+
+
+ .sidebar li:first-child{
+    padding-top: 0;
+ }
+
+ .sidebar li:last-child{
+    padding-bottom: 0;
+ }
+
+ .sidebar hr{
+    border: none;
+     background: aqua;
+     height: 1px;
+    margin: 10px 0;
+ }
+
+ .container{
+    max-width: 940px;
+    margin: 0 auto;
+ }
+
+ .article{
+    position: relative;
+    min-height: 203px;
+    margin: 15px 0;
+    padding-left: 275px;
+    line-height: 1.9;
+
+ }
+
+ .article-img{
+    position: absolute;
+    left: 0;
+    margin: 10px;
+    width: 250px;
+    height: 203px;
+ }
+
+ .article-img:first-child{
+    top: 0;
+ }
+
+ .article a{
+    color: inherit;
+    text-decoration: none;
+ }
+
+ .article a:hover{
+    text-decoration: underline;
+ }
+
+ .article-img img{
+    width: 100%;
+    height: auto;
+
+ }
+
+ .article-date{
+    font-weight: 300px;
+    color: rgba(0, 0, 0, 0.616);
+    margin-bottom: 5px;
+ }
+
+ .article-title {
+    margin-top: 0;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+ }
+
+ 
+.footer p{
+    text-align: center;   
+}
+
+ /* Dernière partie (de body)
+  et on commence par 
+ nettoyer les float */
+
+ .footer{
+    clear: both;
+ }
